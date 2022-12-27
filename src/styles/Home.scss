@@ -1,76 +1,120 @@
+@use "base";
+
 .home {
-    background-image: url("../assets/home/background-home-desktop.jpg");
-    min-height: 100vh;
-    height: 100%;
-    background-size: cover;
-    color: white;
+  background-image: url("../assets/home/background-home-desktop.jpg");
+  min-height: 100vh;
+  height: 100%;
+  background-size: cover;
+  color: white;
+
+  &__info {
+    display: flex;
+    padding-top: 15%;
+    padding-bottom: 5rem;
+    justify-content: space-around;
+  }
+
+  &__explore {
+    position: relative;
+    font-family: "Bellefair";
+    margin: 15rem 0 0 0;
+    font-size: 2rem;
+    color: base.$dark-color;
+    z-index: 2;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &__explore::before {
+    display: block;
+    position: absolute;
+    background-color: white;
+    content: "";
+    width: 17rem;
+    height: 17rem;
+    border-radius: 100%;
+    top: -7rem;
+    right: -95%;
+    z-index: -1;
+  }
+
+  &__explore::after {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 28rem;
+    height: 28rem;
+    bottom: -3rem;
+    right: -10.8rem;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+
+  &__explore:hover::after {
+    display: block;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    content: "";
+    width: 28rem;
+    height: 28rem;
+    border-radius: 100%;
+    bottom: -3rem;
+    right: -10.8rem;
+    z-index: -1;
+    opacity: 1;
+  }
+
+  &__description {
+    max-width: 27.8rem;
+
+    h1 {
+      margin: 2rem 0;
+      font-size: 9.375rem;
+      font-family: "Bellefair", Courier, monospace;
+      color: base.$gray-color;
+    }
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .home {
+    background-image: url("../assets/home/background-home-tablet.jpg");
 
     &__info {
-        display: flex;
-        padding-top: 15%;
-        padding-bottom: 5rem;
-        margin: 0 10rem;
-    }   
-
-    &__explore {
-        position: relative;
-        font-family: "Bellefair";
-        margin: 15rem 0 0 35rem;
-        font-size: 2rem;
-        color: #0B0D17;
-        z-index: 2;
-        cursor: pointer;
-        text-decoration: none;    
+      flex-direction: column;
+      align-items: center;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 15rem 0;
+      text-align: center;
     }
 
-    &__explore::before {
-        display: block;
-        position: absolute;
-        background-color: white;
-        content: "";
-        width: 17rem;
-        height: 17rem;
-        border-radius: 100%;
-        top: -7rem;
-        right: -95%;
-        z-index: -1;
+    &__explore {
+      width: fit-content;
     }
 
     &__explore::after {
-        display: block;
-        position: absolute;
-        content: "";
-        width: 28rem;
-        height: 28rem;
-        bottom: -3rem;
-        right: -10.8rem;
-        opacity: 0;
-        transition: all 300ms ease-in-out;
+      top: -12rem;
     }
 
     &__explore:hover::after {
-        display: block;
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.1);
-        content: "";
-        width: 28rem;
-        height: 28rem;
-        border-radius: 100%;
-        bottom: -3rem;
-        right: -10.8rem;
-        z-index: -1;
-        opacity: 1;
+      top: -12rem;
     }
 
-    &__description {
-        max-width: 27.8rem;
-
-        h1 {
-            margin: 2rem 0;
-            font-size: 9.375rem;
-            font-family:"Bellefair", Courier, monospace;
-            color: #D0D6F9;
-            ;
-        }
+    &__description h1 {
+      font-size: 9.375rem;
+      line-height: 9.375rem;
     }
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .home {
+    background-image: url("../assets/home/background-home-mobile.jpg");
+
+    &__description h1 {
+      font-size: 5rem;
+      line-height: 6.25rem;
+    }
+  }
 }

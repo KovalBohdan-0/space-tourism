@@ -22,7 +22,7 @@ const Destination = () => {
     const [image, setImage] = useState(img);
 
     useEffect(() => {
-        import(`.${currentPlanet.images.webp}`).then(value => setImage(value.default)/* @vite-ignore */);
+        import(`../assets/destination/${currentPlanet.images.webp.replace("./assets/destination/","").replace(".webp", "")}.webp`).then(value => setImage(value.default)/* @vite-ignore */);
     }, [currentPlanet]);
 
     return (

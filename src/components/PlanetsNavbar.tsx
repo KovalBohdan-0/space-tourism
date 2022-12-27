@@ -6,7 +6,6 @@ const PlanetsNavbar = (props: { planets: Planet[], setCurrentPlanet: (prevPlanet
 
     const setPlanet = (name: string) => {
         props.setCurrentPlanet(props.planets.find(planet => planet.name == name));
-        console.log(props.planets.find(planet => planet.name == name)!.name.toLowerCase());
         setSelectedPlanet(props.planets.find(planet => planet.name == name)!.name.toLowerCase());
     }
 

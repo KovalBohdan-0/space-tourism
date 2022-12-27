@@ -20,18 +20,20 @@ const Crew = () => {
     const [image, setImage] = useState(img);
 
     useEffect(() => {
-        import(`.${currentMember.images.webp}`).then(value => setImage(value.default)/* @vite-ignore */);
+        import(`../assets/crew/${currentMember.images.webp.replace("./assets/crew/", "").replace(".webp", "")}.webp`).then(value => setImage(value.default)/* @vite-ignore */);
     }, [currentMember]);
 
     return (
         <div className="crew">
             <div className="crew__info">
-                <div className="crew__description">
+                <div className="wrapper">
                     <h2 className="crew__header title"><span>02</span> Meet your crew</h2>
-                    <h2 className="crew__role">{currentMember.role}</h2>
-                    <h1 className="crew__name">{currentMember.name}</h1>
-                    <p className="crew__details details">{currentMember.bio}</p>
-                    <CrewNavbar crew={crew} setCrewMember={setCurrentMember}/>
+                    <div className="crew__description">
+                        <h2 className="crew__role">{currentMember.role}</h2>
+                        <h1 className="crew__name">{currentMember.name}</h1>
+                        <p className="crew__details details">{currentMember.bio}</p>
+                    </div>
+                    <CrewNavbar crew={crew} setCrewMember={setCurrentMember} />
                 </div>
                 <div className="crew__image">
                     <img src={image} alt="Photo of crew member" />

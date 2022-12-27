@@ -11,11 +11,11 @@ const TechnologyNavbar = (props: { technologies: TechnologyType[], setCurrentTec
 
     return (
         <div className="tech-navbar">
-            <ul className="tech-navbar__list">
-                <li className={`tech-navbar__item ${selectedTechnology == "Launch vehicle" ? "active-cretech": ""}`} onClick={() => setMember("Launch vehicle")}></li>
+            <ol className="tech-navbar__list">
+                <li className={`tech-navbar__item ${selectedTechnology == "Launch vehicle" ? "active-tech": ""}`} onClick={() => setMember("Launch vehicle")}></li>
                 <li className={`tech-navbar__item ${selectedTechnology == "Spaceport" ? "active-tech": ""}`} onClick={() => setMember("Spaceport")}></li>
                 <li className={`tech-navbar__item ${selectedTechnology == "Space capsule" ? "active-tech": ""}`} onClick={() => setMember("Space capsule")}></li>
-            </ul>
+            </ol>
         </div>
     );
 }

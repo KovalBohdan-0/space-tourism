@@ -1,3 +1,5 @@
+@use "base";
+
 .destination {
   background-image: url("../assets/destination/background-destination-desktop.jpg");
   min-height: 100vh;
@@ -39,7 +41,7 @@
       margin-top: 2rem;
       width: 100%;
       height: 1px;
-      background-color: hsla(231, 15%, 26%, 1);
+      background-color: #383b4c;
     }
 
     .distance-travel {
@@ -54,7 +56,7 @@
         line-height: 1.06rem;
         letter-spacing: 0.15rem;
         text-transform: uppercase;
-        color: #d0d6f9;
+        color: base.$gray-color;
       }
 
       .data {
@@ -62,7 +64,7 @@
         font-size: 1.75rem;
         line-height: 2rem;
         text-transform: uppercase;
-        color: #ffffff;
+        color: white;
         padding-top: 1rem;
       }
     }
@@ -71,6 +73,7 @@
 
 .pl-navbar__list {
   display: flex;
+  gap: 2rem;
   list-style: none;
   padding-left: 0;
   margin-top: 5rem;
@@ -80,7 +83,6 @@
     color: white;
     border: none;
     padding: 0;
-    margin-right: 2rem;
     background: none;
     cursor: pointer;
     font-weight: 400;
@@ -88,7 +90,7 @@
     line-height: 1.2rem;
     letter-spacing: 0.17rem;
     text-transform: uppercase;
-    color: #d0d6f9;
+    color: base.$gray-color;
   }
 
   button::after {
@@ -116,7 +118,7 @@
     position: relative;
     width: fit-content;
   }
-  
+
   .active::after {
     position: absolute;
     content: "";
@@ -124,5 +126,105 @@
     height: 0.2rem;
     background-color: white;
     transition: all 300ms ease-in-out;
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .destination {
+    background-image: url("../assets/destination/background-destination-tablet.jpg");
+    text-align: center;
+    
+    &__info {
+      flex-direction: column;
+      align-items: center !important;
+      padding-top: 10rem;
+      margin: 0;
+      width: 100%;
+    }
+
+    &__img {
+      width: 100%;
+
+      img {
+        width: 18.75rem;
+        height: 18.75rem;
+      }
+    }
+
+    &__description {
+      margin: 0;
+
+      h1 {
+        font-size: 5rem;
+        line-height: 5.75rem;
+      }
+    }
+
+    .title {
+      width: fit-content;
+      align-self: flex-start !important;
+      margin-left: 2rem;
+    }
+
+    .distance-travel {
+      gap: 3rem;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        margin: 0;
+      }
+    }
+  }
+
+  .pl-navbar {
+    width: fit-content;
+    margin: 0 auto;
+
+    &__list {
+      width: fit-content;
+    }
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .destination {
+    background-image: url("../assets/destination/background-destination-mobile.jpg");
+
+    &__description {
+      h1 {
+        font-size: 3.5rem;
+        line-height: 4rem;
+      }
+    }
+
+    &__img {
+      .title {
+        margin: 3rem auto;
+        width: fit-content;
+        align-self: center !important;
+      }
+
+      img {
+        width: 10.6rem;
+        height: 10.6rem;
+      }
+    }
+
+    .distance-travel {
+      flex-direction: column;
+    }
+  }
+
+  .pl-navbar {
+    &__list {
+      li {
+        button {
+          font-size: 0.88rem;
+          line-height: 1.1rem;
+          letter-spacing: 0.15rem;
+        }
+      }
+    }
   }
 }

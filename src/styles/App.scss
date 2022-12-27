@@ -1,10 +1,14 @@
-.App {
-  height: 100%;
-}
+@use "base";
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap');
 
 body {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Barlow Condensed';
+}
+
+.App {
+  height: 100%;
 }
 
 .title {
@@ -24,21 +28,32 @@ body {
   font-family: "Barlow";
   font-size: 1.125rem;
   line-height: 2rem;
-  color: #d0d6f9;
+  color: base.$gray-color;
 }
 
-.on {
-  position: relative;
-  width: fit-content;
+@media screen and (max-width: 48em) {
+  .title {
+    font-size: 1.25rem;
+    letter-spacing: 0.21rem;
+    line-height: 1.5rem;
+  }
+
+  .details {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
 }
 
-.on::after {
-  position: absolute;
-  left: 0;
-  bottom: -2.3rem;
-  content: "";
-  width: 100%;
-  height: 0.2rem;
-  background-color: white;
-  transition: all 300ms ease-in-out;
+@media screen and (max-width: 30em) {
+  .title {
+    font-size: 1rem;
+    letter-spacing: 0.17rem;
+    line-height: 1.2rem;
+  }
+
+  .details {
+    font-size: 0.94rem;
+    line-height: 1.6rem;
+    margin: 0 2rem;
+  }
 }

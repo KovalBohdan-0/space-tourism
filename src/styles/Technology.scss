@@ -1,13 +1,178 @@
+@use "base";
+
 .technology {
-    background-image: url("../assets/technology/background-technology-desktop.jpg");
-    min-height: 100vh;
-    height: 100%;
-    background-size: cover;
+  background-image: url("../assets/technology/background-technology-desktop.jpg");
+  min-height: 100vh;
+  height: 100%;
+  background-size: cover;
+  color: white;
+  display: flex;
+  align-content: center;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding-left: 9rem;
+  }
+
+  &__term {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.17rem;
+    color: base.$gray-color;
+    text-transform: uppercase;
+  }
+
+  &__header {
+    padding: 9rem 0 0 15rem;
+  }
+
+  &__name {
+    font-family: "Bellefair";
+    font-size: 3.5rem;
+    line-height: 4rem;
+    text-transform: uppercase;
+    width: max-content;
+  }
+
+  &__description {
+    margin-right: 5rem;
+  }
+}
+
+.tech-navbar {
+  &__list {
+    counter-reset: item;
+    list-style-type: none;
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    padding: 3rem;
+  }
+
+  &__item::after {
+    content: counter(item) "  ";
+    counter-increment: item;
+    z-index: 6;
     color: white;
+    font-family: "Bellefair";
+    font-size: 2rem;
+  }
+
+  &__item::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    bottom: 1.5rem;
+    left: 0.9rem;
+    background-color: transparent;
+    border: 0.1rem hsla(0, 0%, 100%, 0.25) solid;
+    border-radius: 100%;
+    z-index: 5;
+    transform: translateZ(-1px);
+  }
+
+  &__item:hover::before {
+    border: 0.1rem white solid;
+  }
+
+  .active-tech::after {
+    color: #0c0e18;
+  }
+
+  .active-tech::before {
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .technology {
+    background-image: url("../assets/technology/background-technology-tablet.jpg");
 
     &__info {
-        display: flex;
-        align-items: center;
-        padding: 9rem 15rem 0 15rem;
+      flex-direction: column;
+      padding: 0;
+      gap: 0;
     }
+
+    &__header {
+      padding-left: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    &__description {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    &__name {
+      font-size: 2.5rem;
+      line-height: 2.875rem;
+    }
+
+    &__img {
+      width: 100%;
+      order: 1;
+      justify-content: flex-start;
+
+      img {
+        width: 100%;
+        height: 19.375rem;
+        object-fit: cover;
+      }
+    }
+
+    .tech-navbar {
+      order: 2;
+
+      &__list {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+
+        li::before {
+          top: 2rem;
+          left: 1.5rem;
+          width: 3.75rem;
+          height: 3.75rem;
+        }
+      }
+    }
+
+    &__description {
+      order: 3;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .technology {
+    background-image: url("../assets/technology/background-technology-mobile.jpg");
+
+    &__term {
+      font-size: 0.875rem;
+      line-height: 1.1rem;
+    }
+
+    &__name {
+      font-size: 1.5rem;
+      line-height: 1.75rem;
+    }
+  }
 }

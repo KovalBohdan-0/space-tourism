@@ -19,21 +19,23 @@ const Technology = () => {
     const [image, setImage] = useState(img);
 
     useEffect(() => {
-        import(`.${currentTechnology.images.portrait}`).then(value => setImage(value.default)/* @vite-ignore */);
+        import(`../assets/technology/${currentTechnology.images.portrait.replace("./assets/technology/", "").replace(".jpg", "")}.jpg`).then(value => setImage(value.default)/* @vite-ignore */);
     }, [currentTechnology]);
 
     return (
         <div className="technology">
-            <div className="technology__info">
-                <TechnologyNavbar technologies={technologies} setCurrentTechnology={setCurrentTechnology}/>
-                <div className="technology__description"> 
-                    <h2 className="technology__header title"><span>03</span> Space launch 101</h2>
-                    <h4 className="technology__term">The terminology...</h4>
-                    <h1 className="technology__name">{currentTechnology.name}</h1>
-                    <p className="technology__details details">{currentTechnology.description}</p>
-                </div>
-                <div className="technology__img">
-                    <img src={image} alt="technology img" />
+            <div className="wrapper">
+                <h2 className="technology__header title"><span>03</span> Space launch 101</h2>
+                <div className="technology__info">
+                    <TechnologyNavbar technologies={technologies} setCurrentTechnology={setCurrentTechnology} />
+                    <div className="technology__description">
+                        <h4 className="technology__term">The terminology...</h4>
+                        <h1 className="technology__name">{currentTechnology.name}</h1>
+                        <p className="technology__details details">{currentTechnology.description}</p>
+                    </div>
+                    <div className="technology__img">
+                        <img src={image} alt="technology img" />
+                    </div>
                 </div>
             </div>
         </div>
